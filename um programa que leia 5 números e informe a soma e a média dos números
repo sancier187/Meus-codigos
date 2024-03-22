@@ -1,0 +1,30 @@
+//Faça um programa que leia 5 números e informe a soma e a média dos números.;
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner teclado = new Scanner( System.in );
+    int nu1 ,nu2 ,nu3 ,nu4 ,nu5 ,media;
+
+    System.out.print("Informe um numero 1: ");
+       nu1 = teclado.nextInt();
+
+       System.out.print("Informe um numero 2: ");
+       nu2 = teclado.nextInt();
+
+    System.out.print("Informe um numero 3: ");
+     nu3 = teclado.nextInt();
+
+    System.out.print("Informe um numero 4: ");
+     nu4 = teclado.nextInt();
+    
+     System.out.print("Informe um numero 4: ");
+      nu5 = teclado.nextInt();
+
+       media = nu1 + nu2 + nu3 + nu4 + nu5 / 5;
+
+       System.out.println(" media = " + media);
+      
+  }
+
+  
+}
