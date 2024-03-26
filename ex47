@@ -1,0 +1,17 @@
+//Faça um programa que peça um numero inteiro positivo e em seguida mostre este numero invertido.;
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner teclado = new Scanner( System.in );
+    int numero, invertido = 0;
+    System.out.print("Digite um número inteiro positivo: ");
+    numero = teclado.nextInt();
+    while (numero != 0){
+      invertido = invertido * 10;
+      invertido = invertido + numero % 10;
+      numero = numero / 10;
+    }
+    System.out.println("O número invertido é: " + invertido);
+  
+  }
+}
