@@ -1,0 +1,30 @@
+//Escreva um programa em java que preencha um vetor com 30 números inteiros aleatórios entre 1 e 100. Peça ao usuário para digitar um valor, verifique se este valor existe no vetor e remova ele do vetor.;
+
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner input = new Scanner( System.in );
+    int[] vetor = new int[30];
+    int i, j, valor;
+    boolean achou;
+    for (i = 0; i < 30; i++){
+      vetor[i] = (int) (Math.random() * 100 + 1);
+      
+    }
+    System.out.println("Digite um valor: ");
+    valor = input.nextInt();
+    achou = false;
+    for (i = 0; i < 30; i++){
+      if (vetor[i] == valor){
+        achou = true;
+        for (j = i; j < 29; j++){
+          vetor[j] = vetor[j+1];
+        }
+        break;
+      }
+    }
+  }
+  
+
+ 
+}
