@@ -1,0 +1,28 @@
+//Faça um programa que preencha um vetor com dez números inteiros, calcule e mostre os números primos e suas respectivas posições.;
+
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner teclado = new Scanner( System.in );
+    int[] vetor = new int[10];
+    int i, j, cont, primo;
+    for (i=0; i<10; i++){
+      System.out.printf("Digite o %dº número: ", i+1);
+      vetor[i] = teclado.nextInt();
+      
+    }
+    for (i=0; i<10; i++){
+      cont = 0;
+      for (j=1; j<=vetor[i]; j++){
+        if (vetor[i]%j==0){
+          cont++;
+        }
+      }
+      if (cont==2){
+        System.out.printf("O número %d é primo e está na posição %d do vetor.\n", vetor[i], i);
+      }
+    }
+  }
+
+
+}
