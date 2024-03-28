@@ -1,0 +1,19 @@
+//Escreva um programa em java que preencha um vetor com 15 números inteiros aleatórios entre 1 e 50. Verifique se o número 20 existe nesse vetor e retorne seu índice caso ele exista.; 
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner input = new Scanner( System.in );
+    int[] vetor = new int[15];
+    int i, contador = 0;
+    for (i = 0; i < vetor.length; i++){
+      vetor[i] = (int) (Math.random() * 50 + 1);
+      System.out.println(vetor[i]);
+      if (vetor[i] == 20){
+        contador++;
+      }
+    }
+  }
+
+
+}
