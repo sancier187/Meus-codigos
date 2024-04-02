@@ -1,0 +1,20 @@
+// Crie um programa que leia 5 respostas (números inteiros) de entrevistados e, em seguida, imprima essas respostas na ordem inversa em que foram registradas.;
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner vinicius = new Scanner( System.in );
+    int[] respostas = new int[5];
+    for (int i = 0; i < 5; i++){
+      System.out.println("Digite a resposta " + (i+1) + ": ");
+      respostas[i] = vinicius.nextInt();
+    }
+    System.out.println("Respostas na ordem inversa: ");
+    for (int i = 4; i >= 0; i--){
+      System.out.println(respostas[i]);
+    }
+    vinicius.close();
+    
+  }
+
+ 
+}
