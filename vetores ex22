@@ -1,0 +1,16 @@
+//Em uma calculadora, é necessário somar dois números digitados pelo usuário. Escreva um procedimento que receba dois números como parâmetros e imprima a soma deles.
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner vinicius = new Scanner( System.in );
+    System.out.println("Digite o primeiro número: ");
+    int num1 = vinicius.nextInt();
+    System.out.println("Digite o segundo número: ");
+    int num2 = vinicius.nextInt();
+    int soma = num1 + num2;
+    System.out.println("A soma dos números é: " + soma);
+    
+  }
+
+ 
+}
