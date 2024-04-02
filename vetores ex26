@@ -1,0 +1,17 @@
+//Em um sistema de controle de notas de alunos, é necessário calcular a média das notas de uma turma. Crie um procedimento que receba um vetor de números inteiros como parâmetro e imprima a média dos valores contidos nesse vetor.
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner input = new Scanner( System.in );
+    int[] notas = new int[5];
+    int soma = 0;
+    int media = 0;
+    for(int i = 0; i < notas.length; i++){
+      System.out.println("Digite a nota do aluno " + (i+1));
+      notas[i] = input.nextInt();
+      soma += notas[i];
+    }
+    media = soma / notas.length;
+    System.out.println("A média das notas é: " + media);
+  }
+}
