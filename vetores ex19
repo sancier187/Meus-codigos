@@ -1,0 +1,27 @@
+//Durante a verificação de estoque, é necessário identificar a presença de determinados produtos. Crie um programa que solicite ao usuário inserir um código de produto e, em seguida, verifique se esse código está presente em um vetor pré-definido.;
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner vinicius = new Scanner( System.in );
+
+    int[] codigos = {110, 112, 130, 114, 119, 150, 160, 164};
+    int codigoDigitado;
+    boolean achou = false;
+    System.out.println("Digite o código do produto: ");
+    codigoDigitado = vinicius.nextInt();
+    for(int i = 0; i < codigos.length; i++){
+      if(codigoDigitado == codigos[i]){
+        achou = true;
+        break;
+      }
+    }
+    if(achou){
+      System.out.println("O código " + codigoDigitado + " está presente no estoque.");
+    } else {
+      System.out.println("O código " + codigoDigitado + " não está presente no estoque.");
+    }
+    
+  }
+
+
+}
