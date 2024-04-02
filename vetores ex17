@@ -1,0 +1,35 @@
+//Em um sistema de controle acadêmico, é preciso calcular a média das notas dos alunos. Escreva um programa que leia as notas de 10 alunos e, em seguida, calcule e imprima a média dessas notas.;
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+     Scanner vinicius = new Scanner( System.in );
+     int nota1, nota2, nota3, nota4, nota5, nota6, nota7, nota8, nota9, nota10;
+     double media;
+     System.out.println("Digite a nota 1: ");
+     nota1 = vinicius.nextInt();
+     System.out.println("Digite a nota 2: ");
+     nota2 = vinicius.nextInt();
+     System.out.println("Digite a nota 3: ");
+     nota3 = vinicius.nextInt();
+     System.out.println("Digite a nota 4: ");
+     nota4 = vinicius.nextInt();
+     System.out.println("Digite a nota 5: ");
+     nota5 = vinicius.nextInt();
+     System.out.println("Digite a nota 6: ");
+     nota6 = vinicius.nextInt();
+     System.out.println("Digite a nota 7: ");
+     nota7 = vinicius.nextInt();
+     System.out.println("Digite a nota 8: ");
+     nota8 = vinicius.nextInt();
+     System.out.println("Digite a nota 9: ");
+     nota9 = vinicius.nextInt();
+     System.out.println("Digite a nota 10: ");
+     nota10 = vinicius.nextInt();
+     media = (nota1 + nota2 + nota3 + nota4 + nota5 + nota6 + nota7 + nota8 + nota9 + nota10/10);
+       System.out.println("A média é: " + media);
+     
+    
+  }
+  
+
+}
