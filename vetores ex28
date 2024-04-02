@@ -1,0 +1,27 @@
+/*Uma pequena loja de artesanato possui apenas um vendedor e comercializa dez tipos de objetos. O vendedor recebe, mensalmente, salário de R$545,00, acrescido de 5% do valor total de suas vendas. O valor unitário dos objetos deve ser informado e armazenado em um vetor; a quantidade vendida de cada peça deve ficar em outro vetor, mas na mesma posição. Crie um programa que receba os preços e as quantidades vendidas, armazenando-os em seus respectivos vetores (ambos com tamanho dez). Depois, determine e mostre:
+um relatório contendo: quantidade vendida, valor unitário e valor total de cada objeto. Ao final, deverão ser mostrados o valor geral das vendas e o valor da comissão que será paga ao vendedor; e*/
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner input = new Scanner( System.in );
+    double[] preco = new double[10];
+    int[] quantidade = new int[10];
+    double[] total = new double[10];
+    double soma = 0;
+    for(int i = 0; i < 10; i++){
+      System.out.println("Digite o preço do objeto " + (i+1) + ": ");
+      preco[i] = input.nextDouble();
+      System.out.println("Digite a quantidade vendida do objeto " + (i+1) + ": ");
+      quantidade[i] = input.nextInt();
+      total[i] = preco[i] * quantidade[i];
+      soma += total[i];
+    }
+    System.out.println("Relatório de vendas: ");
+    for(int i = 0; i < 10; i++){
+      System.out.println("Objeto " + (i+1) + ":");
+      System.out.println("Quantidade vendida: " + quantidade[i]);
+      System.out.println("Valor unitário: " + preco[i]);
+      System.out.println("Valor total: " + total[i]);
+    }
+  }
+}
