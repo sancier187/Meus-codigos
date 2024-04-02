@@ -1,0 +1,15 @@
+//Em um sistema de construção, é necessário calcular o perímetro de uma área para cercá-la. Faça um procedimento que calcule e imprima o valor do perímetro de um círculo, dado o raio fornecido pelo usuário.
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner vinicius = new Scanner( System.in );
+    System.out.println("Digite o raio do círculo: ");
+    double raio = vinicius.nextDouble();
+    double perimetro = 2 * 3.14 * raio;
+    System.out.println("O perímetro do círculo é: " + perimetro);
+    
+  }
+
+ 
+}
