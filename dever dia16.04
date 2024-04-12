@@ -1,0 +1,78 @@
+public class elevador{
+  private int andarAtual;
+  private int totalAndares;
+  private int capacidade;
+  private int pessoasPresentes;
+
+  public elevador(int capacidade, int totalAndares){
+    this.andarAtual = 0;
+    this.totalAndares = totalAndares;
+    this.capacidade = capacidade;
+    this.pessoasPresentes = 0;
+  }
+
+  public void entrar(){
+    if(this.pessoasPresentes < this.capacidade){
+      this.pessoasPresentes++;
+    }
+  }
+
+  public void sair(){
+    if(this.pessoasPresentes > 0){
+      this.pessoasPresentes--;
+    }
+  }
+
+  public void subir(){
+    if(this.andarAtual < this.totalAndares){
+      this.andarAtual++;
+    }
+  }
+
+  public void descer(){
+    if(this.andarAtual > 0){
+      this.andarAtual--;
+    }
+  }
+  
+}
+
+
+
+/*Crie uma classe Elevador para armazenar as informações de um elevador de prédio. ]
+A classe deve armazenar o andar atual (térreo = 0), total de andares no prédio (desconsiderando o térreo), capacidade do elevador e quantas pessoas estão presentes nele.
+A classe deve também disponibilizar os seguintes métodos:
+Inicializar: que deve receber como parâmetros a capacidade do elevador e o total de andares no prédio (os elevadores sempre começam no térreo e vazio);
+Entrer: para acrescentar uma pessoa no elevador (só deve acrescentar se ainda houver espaço);
+Sair: para remover uma pessoa do elevador (só deve remover se houver alguém dentro dele);
+Subir: para subir um andar (não deve subir se já estiver no último andar);
+Descer: para descer um andar (não deve descer se já estiver no térreo);
+Crie uma classe Elevador para armazenar as informações de um elevador de prédio.
+A classe deve armazenar o andar atual (térreo = 0), total de andares no prédio (desconsiderando o térreo), capacidade do elevador e quantas pessoas estão presentes nele. A classe deve também disponibilizar os seguintes métodos:
+Inicializar: que deve receber como parâmetros a capacidade do elevador e o total de andares no prédio (os elevadores sempre começam no térreo e vazio);
+Entrar: para acrescentar uma pessoa no elevador (só deve acrescentar se ainda houver espaço);
+Sair: para remover uma pessoa do elevador (só deve remover se houver alguém dentro dele);
+Subir: para subir um andar (não deve subir se já estiver no último andar);
+Descer: para descer um andar (não deve descer se já estiver no térreo);
+*/
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner vinicius = new Scanner( System.in );
+    System.out.println("Digite a capacidade do elevador: ");
+    int capacidade = vinicius.nextInt();
+    System.out.println("Digite o total de andares no prédio: ");
+    int totalAndares = vinicius.nextInt();
+    elevador elevador = new elevador(capacidade, totalAndares);
+    System.out.println("Digite o andar atual: ");
+    int andarAtual = vinicius.nextInt();
+    System.out.println("Digite a capacidade do elevador: ");
+    int pessoasPresentes = vinicius.nextInt();
+    elevador.entrar();
+    elevador.sair();
+    elevador.subir();
+    elevador.descer();
+    
+  } 
+  
+}
