@@ -1,0 +1,86 @@
+/* Crie uma classe Produto com as seguintes características:
+•Atributos id, nome e preço
+•Um atributo ultimo_id, que irá armazenar o identificador do último produto criado. Ao criar um
+novo produto, atribua o valor deste atributo ao id do objeto criado, e incremente este contador
+em seguida. Este atributo deverá ser somente de leitura fora da classe.
+•Métodos get e set para acesso aos atributos da classe (para o atributo id, crie somente o
+método get. O valor deste atributo será alterado somente ao se criar um objeto da classe. Para
+o método setPreco, valide o valor do preço. Caso seja negativo, atribua o valor 0 ao mesmo)
+•Construtor sem parâmetros, que atribua o id ao produto criado e que incremente o último id
+gerado, e que inicialize o preço do produto com 0 e o seu nome como “Nome não informado”
+•Construtor que receba o nome e preço do produto, e que execute o primeiro para atribuir o
+valor do id produto
+•Método exibe(), que exiba as informações do produto da seguinte forma:
+• Produto: nome do produto
+• Id: identificador do produto
+• Nome: nome do produto
+• Método reajustaPreco, que receba um percentual, e que atualize o preço do produto de acordo
+com o percentual
+• Para testar a sua classe, crie dois objetos desta classe. Para a criação desses objetos, solicite ao
+usuário que informe o nome e preço do produto. Em seguida, solicite o valor de reajuste e
+imprima as informações do produto, juntamente com a informação do último id gerado.
+*/
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Digite o nome do produto: ");
+    String nome = sc.nextLine();
+    System.out.println("Digite o preço do produto: ");
+    double preco = sc.nextDouble();
+    produto produto = new produto(nome, preco);
+    System.out.println("Digite o percentual de reajuste: ");
+    double percentual = sc.nextDouble();
+    produto.reajustaPreco(percentual);
+    System.out.println("Produto: " + produto.getNome());
+    System.out.println("Id: " + produto.getId());
+    System.out.println("Nome: " + produto.getNome());
+    System.out.println("Preço: " + produto.getPreco());
+    System.out.println("Último id gerado: " + produto.getUltimoId());
+  }
+}
+---------
+public class produto{
+  private int id;
+  private String nome;
+  private double preco;
+  private static int ultimo_id = 0;
+
+  public produto(String nome, double preco){
+    this.id = ultimo_id++;
+    this.nome = nome;
+    this.preco = preco;
+  }
+
+  public String getNome(){
+    return nome;
+  }
+
+  public void setNome(String nome){
+    this.nome = nome;
+  }
+
+  public double getPreco(){
+    return preco;
+  }
+
+  public void setPreco(double preco){
+    if(preco < 0){
+      this.preco = 0;
+    }else{
+      this.preco = preco;
+    }
+  }
+
+  public int getId(){
+    return id;
+  }
+
+  public static int getUltimoId(){
+    return ultimo_id;
+  }
+
+  public void reajustaPreco(double percentual){
+    preco += preco * percentual / 100;
+  }
+}
