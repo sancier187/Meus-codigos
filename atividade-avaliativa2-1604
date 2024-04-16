@@ -1,0 +1,75 @@
+Empregado.java
+public class Empregado {
+    private String nome;
+    private String sobrenome;
+    private double salarioMensal;
+    public Empregado(String nome, String sobrenome, double salarioMensal) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        if (salarioMensal > 0) {
+            this.salarioMensal = salarioMensal;
+        } else {
+            this.salarioMensal = 0.0;
+        }
+    }
+    public String getNome() {
+        return this.nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getSobrenome() {
+        return this.sobrenome;
+    }
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+    public double getSalarioMensal() {
+        return this.salarioMensal;
+    }
+    public void setSalarioMensal(double salarioMensal) {
+        if (salarioMensal > 0) {
+            this.salarioMensal = salarioMensal;
+        } else {
+            this.salarioMensal = 0.0;
+        }
+    }
+    public double getSalarioAnual() {
+        return this.salarioMensal * 12;
+    }
+    public void aumentarSalario(double porcentagem) {
+        this.salarioMensal += this.salarioMensal * (porcentagem / 100);
+    }
+}
+
+-----------------
+Main.java
+/* A fim de representar empregados em uma empresa, crie uma classe chamada Empregado que inclui as três informações a seguir como atributos:
+um primeiro nome,
+um sobrenome, e
+um salário mensal.
+Sua classe deve ter um construtor que inicializa os três atributos. Forneça os métodos método get/set para cada atributo. Se o salário mensal não for positivo, configure-o como 0.0. Escreva um aplicativo de teste que demonstra as capacidades da classe. Crie duas instâncias da classe e exiba o salário anual de cada instância (soma dos salários mensais). Então dê a cada empregado um aumento de 10% e exiba novamente o salário anual de cada empregado.
+*/
+
+public class Main {
+    public static void main(String[] args) {
+
+        Empregado empregado1 = new Empregado("Maria", "Aparecida", 5000.0);
+        Empregado empregado2 = new Empregado("Bob", "Junior", 6000.0);
+
+
+        System.out.println("Salário Anual do Funcionário 1: " + empregado1.getSalarioAnual());
+        System.out.println("Salário Anual do Funcionário 2: " + empregado2.getSalarioAnual());
+
+
+        empregado1.aumentarSalario(10);
+        empregado2.aumentarSalario(10);
+
+
+        System.out.println("Salário Anual Atualizado do Funcionário 1: " + empregado1.getSalarioAnual());
+        System.out.println("Salário Anual Atualizado do Funcionário 2: " + empregado2.getSalarioAnual());
+
+        System.out.println("Nome Completo do Funcionário 1: " + empregado1.getNome() + " " + empregado1.getSobrenome());
+        System.out.println("Nome Completo do Funcionário 2: " + empregado2.getNome() + " " + empregado2.getSobrenome());
+    }
+}
