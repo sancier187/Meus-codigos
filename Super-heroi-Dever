@@ -1,0 +1,195 @@
+Confronto.java
+public class Confronto {
+    public int executar(SuperHeroi superheroi, Vilao vilao) {
+        int poderSuperHeroi = superheroi.getPoderTotal();
+        int poderVilao = vilao.getPoderTotal();
+        String nomeSuperHeroi = superheroi.getNome();
+        String nomeVilao = vilao.getNome();
+
+        if (poderSuperHeroi > poderVilao) {
+            return 1;
+        } else if (poderVilao > poderSuperHeroi) {
+            return 2;
+        } else {
+            return 0;
+        }
+    }
+}
+--------------
+Jogo.java
+import java.util.ArrayList;
+
+public class Jogo {
+    public static void main(String[] args) {
+        SuperHeroi superHeroi = new SuperHeroi("Superman", "Clark Kent");
+        Vilao vilao = new Vilao("Lex Luthor", "Lex Luthor", 100);
+        Superpoder superPoder1 = new Superpoder("Super Força", 10);
+        Superpoder superPoder2 = new Superpoder("Visão de Raio-X", 15);
+        Superpoder superPoder3 = new Superpoder("Voo", 20);
+
+        superHeroi.adicionaSuperpoder(superPoder1);
+        superHeroi.adicionaSuperpoder(superPoder2);
+        superHeroi.adicionaSuperpoder(superPoder3);
+        Confronto confronto = new Confronto();
+        int resultado = confronto.executar(superHeroi, vilao);
+        if (resultado == 1) {
+            System.out.println(superHeroi.getNome() + " venceu o confronto!");
+        } else if (resultado == 2) {
+            System.out.println(vilao.getNome() + " venceu o confronto!");
+        } else {
+            System.out.println("O confronto terminou em empate!");
+        }
+    }
+}
+---------------
+Main.java
+/*
+Super Man heroi e o vilão lex luto
+1. Construa uma classe chamada Superpoder, com a seguinte estrutura: 
+Atributos privados 
+o nome: String 
+o categoria: int 
+
+Métodos públicos 
+o getNome() 
+  retorna o nome do poder 
+o getCategoria() 
+  retorna a categoria do poder 
+Construtor público 
+o Superpoder(String nome, int categoria)  
+  Recebe o nome do poder e a categoria e atribui ao objeto. 
+
+2. Construa uma classe denominada Personagem, com a seguinte estrutura: 
+Atributos privados 
+o nome: String 
+o nomeVidaReal: String 
+o poderes: vetor de 4 elementos do tipo Superpoder 
+
+Métodos públicos 
+o void adicionaSuperpoder(Superpoder sp) recebe um superpoder como parâmetro e coloca-o no vetor ‘poderes’. Um super-herói ou vilão pode ter, no máximo, 4 poderes. 
+
+o int getPoderTotal() retorna a soma de poderes do super-herói. O poder total é calculado percorrendo-se o vetor ‘poderes’ e somando-se a categoria de cada poder. 
+
+Construtor público 
+o Personagem (String nome, String nomeVidaReal) Recebe os nomes do personagem e atribui ao objeto. 
+
+3. Construa uma classe chamada  SuperHeroi, que descende da classe Personagem, com a seguinte estrutura: 
+Construtor público 
+o SuperHeroi(String nome, String nomeVidaReal) Recebe os dois parâmetros e repassa para a classe base, Personagem. 
+
+Redefinição do método da classe base 
+o int getPoderTotal() Acrescenta um inflator de 10% aos poderes do personagem super-herói. 
+
+4. Construa uma classe chamada Vilao, que descende da classe Personagem, com a seguinte estrutura: 
+
+Atributos 
+o tempoDePrisao: int 
+Construtor 
+o Vilao(String nome, String nomeVidaReal, int tempoDePrisao) Recebe os três parâmetros e repassa dois deles para a classe base, Personagem. 
+
+5. Construa uma classe chamada Confronto, com a seguinte estrutura: 
+Métodos públicos 
+o int executar (SuperHeroi superheroi, Vilao vilao) o método recebe um super-herói e um vilão como parâmetros e decide quem é o vencedor da batalha. O método deve retornar: 
+•  1 se o super-herói ganha a batalha 
+•  2 se o vilão ganha a batalha 
+•  0 se houver empate. 
+
+O vencedor será aquele que tiver mais poder (use o método getPoderTotal() para saber qual é o poder de cada um). 
+
+6. Construa uma classe chamada  Jogo, com a função  main. Nessa função, faça o seguinte: 
+ a) crie um objeto da classe SuperHeroi e um objeto da classe Vilao.  
+b) crie os superpoderes a atribua-os ao objetos SuperHeroi e Vilao.
+c) crie um objeto da classe Confronto e execute o confronto.
+d) imprima o resultado do confronto.
+*/
+
+public class Main {
+    public static void main(String[] args) {
+        Jogo.main(args);
+    }
+}
+----------------
+Personagem.java
+public class Personagem {
+private String nome;
+private String nomeVidaReal;
+private Superpoder[] poderes = new Superpoder[4];
+private int numPoderes = 0;
+public Personagem(String nome, String nomeVidaReal) {
+    this.nome = nome;
+    this.nomeVidaReal = nomeVidaReal;
+}
+public String getNome() {
+    return this.nome;
+}
+    
+
+    public void adicionaSuperpoder(Superpoder sp) {
+        if(numPoderes < 4) {
+            poderes[numPoderes] = sp;
+            numPoderes++;
+        } else {
+            System.out.println("O personagem já possui o número máximo de poderes.");
+        }
+    }
+
+    public int getPoderTotal() {
+        int poderTotal = 0;
+        for (int i = 0; i < numPoderes; i++) {
+            poderTotal += poderes[i].getCategoria();
+        }
+        return poderTotal;
+    }
+}
+---------------
+SuperHeroi.java
+public class SuperHeroi extends Personagem {
+    public SuperHeroi(String nome, String nomeVidaReal) {
+        super(nome, nomeVidaReal);
+    }
+
+    @Override
+    public int getPoderTotal() {
+        return (int) (super.getPoderTotal() * 1.10);
+    }
+
+    @Override
+    public String getNome() {
+        return super.getNome();
+    }
+}
+-------------
+Superpoder.java
+public class Superpoder {
+    private String nome;
+    private int categoria;
+    public Superpoder(String nome, int categoria) {
+        this.nome = nome;
+        this.categoria = categoria;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public int getCategoria() {
+        return categoria;
+    }
+}
+---------------
+Vilao.java
+public class Vilao extends Personagem {
+    private int tempoDePrisao;
+
+    public Vilao(String nome, String nomeVidaReal, int tempoDePrisao) {
+        super(nome, nomeVidaReal);
+        this.tempoDePrisao = tempoDePrisao;
+    }
+
+    @Override
+    public String getNome() {
+        return super.getNome();
+    }
+}
+
+
+
+
