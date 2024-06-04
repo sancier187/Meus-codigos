@@ -1,0 +1,137 @@
+Main.java
+//sistema de doacão de alimento,roupa e dinheiro para o rio grade dos sul e deve armazena o dado da doação no doação.java//
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //coloque opção de doação e deve agrade pela sua doação com a mensagem muito obrigado pela sua doação e coloque um loop nas opcão//
+        int opcao;
+
+        do {
+           //opção de doação do meu codigo//
+            System.out.println("Escolha umas das opção de doação aqui abaixo: ");
+            System.out.println("1 - Alimento");
+            System.out.println("2 - Roupa");
+            System.out.println("3 - Dinheiro");
+            System.out.println("4 - Sair");
+            opcao = scanner.nextInt();
+            scanner.nextLine();  //Essa e a nova linha//
+
+            switch (opcao) {
+                case 1:
+                    //primeiro caso da doação de alimneto//
+                    System.out.println("Você escolheu doar alimento");
+                    System.out.println("Informe o tipo de alimento: ");
+                    String tipoAlimento = scanner.nextLine();
+                    System.out.println("Informe a quantidade: ");
+                    int quantidadeAlimento = scanner.nextInt();
+                    scanner.nextLine();  //Essa e a nova linha//
+                    System.out.println("Informe a qualidade: ");
+                    String qualidadeAlimento = scanner.nextLine();
+
+                    Doacao doacaoAlimento = new Doacao("Alimento", tipoAlimento, quantidadeAlimento, qualidadeAlimento);
+                    doacaoAlimento.exibirDoacao();
+                    break;
+
+                case 2:
+                    //segundo caso da doação de roupa e tamanho da roupa e a qualidade dela//
+                    System.out.println("Você escolheu doar roupa");
+                    System.out.println("Informe o tamanho da roupa: ");
+                    String tamanhoRoupa = scanner.nextLine();
+                    System.out.println("Informe a qualidade da roupa: ");
+                    String qualidadeRoupa = scanner.nextLine();
+                    System.out.println("Informe a quantidade de roupa: ");
+                    int quantidadeRoupa = scanner.nextInt();
+                    scanner.nextLine();  //Essa e a nova linha//
+
+                    Doacao doacaoRoupa = new Doacao("Roupa", tamanhoRoupa, quantidadeRoupa, qualidadeRoupa);
+                    doacaoRoupa.exibirDoacao();
+                    break;
+
+                case 3:
+                    //terceiro caso da doação de dinheiro e  metodo de pagamento//
+                    System.out.println("Você escolheu doar dinheiro");
+                    System.out.println("Informe o valor da doação: ");
+                    double valorDoacao = scanner.nextDouble();
+                    scanner.nextLine();  //Essa e a nova linha//
+                    System.out.println("Escolha o método de pagamento: ");
+                    System.out.println("1 - Pix");
+                    System.out.println("2 -Transferência bancária normal");
+                    int metodo = scanner.nextInt();
+                    scanner.nextLine();  //Essa e a nova linha//
+                    String metodoPagamento = (metodo == 1) ? "Pix" : "Transferência bancária normal";
+                    String chavePix = null;
+                    if (metodo == 1) {
+                        System.out.println("Informe a chave Pix: ");
+                        chavePix = scanner.nextLine();
+                    }
+
+                    Doacao doacaoDinheiro = new Doacao(valorDoacao, metodoPagamento, chavePix);
+                    doacaoDinheiro.exibirDoacao();
+                    break;
+
+                case 4:
+                    //finalizar o programa//
+                    System.out.println("Saindo do programa...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
+            // essa a e minha repetição no meu codigo//
+        } while (opcao != 4);
+        //fecha o codigo//
+        scanner.close();
+    }
+}
+
+Doação.java
+import java.util.Scanner;
+//criar uma classe para doaçao//
+class Doacao {
+    //todos os privates do meu  codigo//
+    private String tipo;
+    private String descricao;
+    private int quantidade;
+    private String qualidade;
+    private double valor;
+    private String metodoPagamento;
+    private String chavePix;
+
+    //Metodos Construtores do codigo//
+    //coisa ave a doação de alimento no codigo Main.java//
+    public Doacao(String tipo, String descricao, int quantidade, String qualidade) {
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.quantidade = quantidade;
+        this.qualidade = qualidade;
+    }
+      //doação de dinheiro no codigo Main.java//
+    public Doacao(double valor, String metodoPagamento, String chavePix) {
+        this.tipo = "Dinheiro";
+        this.valor = valor;
+        this.metodoPagamento = metodoPagamento;
+        this.chavePix = chavePix;
+    }
+
+    // Métodos para exibir a doação de dinheiro no meu codigo//
+    public void exibirDoacao() {
+        if (tipo.equals("Dinheiro")) {
+            System.out.println("Tipo de doação: " + tipo);
+            System.out.println("Valor doado: " + valor);
+            System.out.println("Método de pagamento: " + metodoPagamento);
+            if (metodoPagamento.equals("Pix")) {
+                System.out.println("Chave Pix: " + chavePix);
+            }
+        } else {
+            //esta aqui a doação de alimento e roupa do codigo//
+            System.out.println("Tipo de doação: " + tipo);
+            System.out.println("Descrição: " + descricao);
+            System.out.println("Quantidade: " + quantidade);
+            System.out.println("Qualidade: " + qualidade);
+        }
+        //mesagem de agradecimento pela doação//
+        System.out.println("Obrigado pela sua doação!");
+    }
+}
