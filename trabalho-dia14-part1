@@ -1,0 +1,115 @@
+//https://github.com/alexmontanha/trabalho_final_psc//
+1  - Proposta de Problema
+O sistema seria projetado para ajudar as vítimas de uma enchente no Rio Grande do Sul. O sistema deve ser capaz de realizar as seguintes funções: doação de alimento , roupa , denheiro,Calcular Total de Doaçõese e Armazenar Informações de Doações.
+--------------
+2  - Requisitos Funcionais
+//O estudante deve submeter o texto do enunciado à IA e solicitar que ela identifique e liste as funcionalidades que o sistema deve ter para resolver o problema proposto//
+Para elaborar os requisitos funcionais de um sistema de doações para o Rio Grande do Sul, é essencial entender as necessidades e objetivos do sistema. Os requisitos funcionais especificam o que o sistema deve fazer e como ele deve se comportar. Aqui estão alguns requisitos funcionais detalhados para um sistema de doações:
+
+1. Cadastro de Usuários
+Registro de Doadores:
+O sistema deve permitir que doadores se cadastrem fornecendo informações como nome, endereço, e-mail, telefone e CPF.
+Registro de Beneficiários:
+O sistema deve permitir que beneficiários se cadastrem fornecendo informações como nome, endereço, e-mail, telefone, CPF ou CNPJ (no caso de instituições).
+2. Autenticação e Autorização
+Login e Logout:
+O sistema deve permitir que doadores e beneficiários façam login usando um e-mail e senha.
+Recuperação de Senha:
+O sistema deve permitir que os usuários recuperem suas senhas por meio de um processo seguro.
+3. Gerenciamento de Doações
+Criação de Doações:
+O sistema deve permitir que doadores registrem novas doações, especificando detalhes como tipo de item, quantidade, data e local de entrega.
+Listagem de Doações:
+O sistema deve permitir que beneficiários visualizem uma lista de doações disponíveis.
+Solicitação de Doações:
+O sistema deve permitir que beneficiários solicitem doações específicas.
+4. Notificações
+Confirmação de Doações:
+O sistema deve enviar notificações por e-mail para doadores e beneficiários quando uma doação é registrada, solicitada ou confirmada.
+Lembretes:
+O sistema deve enviar lembretes para doadores sobre doações agendadas.
+5. Relatórios e Estatísticas
+Relatórios de Doações:
+O sistema deve gerar relatórios detalhados de doações feitas e recebidas, filtráveis por data, tipo de item, etc.
+Estatísticas:
+O sistema deve exibir estatísticas sobre o total de doações, itens mais doados, etc.
+6. Interface de Usuário
+Dashboard:
+O sistema deve fornecer um dashboard para doadores e beneficiários com informações resumidas sobre suas atividades.
+Pesquisa:
+O sistema deve permitir a pesquisa de doações e beneficiários usando diferentes critérios.
+7. Segurança e Privacidade
+Proteção de Dados:
+O sistema deve proteger dados sensíveis de usuários de acordo com a LGPD (Lei Geral de Proteção de Dados).
+Criptografia:
+O sistema deve utilizar criptografia para proteger dados em trânsito e em repouso.
+8. Suporte e Ajuda
+FAQs e Suporte ao Usuário:
+O sistema deve fornecer uma seção de FAQs e um canal de suporte para ajudar os usuários com dúvidas e problemas.
+9. Integração com Outros Sistemas
+Integração com Redes Sociais:
+O sistema pode permitir que os usuários compartilhem suas atividades de doação em redes sociais.
+API de Terceiros:
+O sistema deve ser capaz de integrar-se com APIs de terceiros para funcionalidades adicionais, como geolocalização de pontos de entrega.
+Exemplo de Cenário de Uso:
+Doação de Alimentos:
+Um doador se cadastra no sistema e faz login.
+Ele registra uma doação de 10 cestas básicas.
+Um beneficiário, buscando por doações de alimentos, encontra a oferta e solicita 5 cestas.
+O doador recebe uma notificação e confirma a doação.
+Ambos recebem notificações com detalhes para a entrega.
+Esses requisitos funcionais são fundamentais para garantir que o sistema de doações atenda às necessidades dos usuários e opere de forma eficiente e segura.
+------------
+3    - Crítica à IA
+   A ia ate que foi boa para indetificar os resquesito funcionais mas tem coisa que e opicional.
+-------------
+4    -Diagrama de Classes:
+//do meu codigo//
+Classe Doacao (doacao.java)
+Atributos:
+
+categoria (String): Categoria da contribuição, podendo ser “Alimento", “Vestuário” ou “Dinheiro".
+informacaoAdicional (String): Informações adicionais sobre a contribuição (usadas para alimentos e roupas).
+quantidadeItens (int): Número de itens doados (aplica-se a alimentos e vestuário).
+estadoItem (String): Condição dos itens doados (aplica-se a alimentos e vestuário).
+montanteFinanceiro (double): Valor da contribuição em dinheiro.
+modoPagamento (String): Forma de pagamento para doações em dinheiro, como “Pix” ou “Transferência bancária".
+chavePixAssociada (String): Chave Pix utilizada para doações em dinheiro via Pix.
+Métodos:
+
+Construtores:
+Doacao(String categoria, String informacaoAdicional, int quantidadeItens, String estadoItem): Construtor para contribuições de alimentos e vestuário.
+Doacao(double montanteFinanceiro, String modoPagamento, String chavePixAssociada): Construtor para contribuições em dinheiro.
+exibirDetalhesContribuicao(): Método que mostra os detalhes da contribuição e expressa gratidão pela colaboração.
+Classe Principal (Main.java)
+Métodos:
+main(String[] args): Método principal que contém a lógica de execução do programa.
+Cria um objeto Scanner para receber as entradas do usuário.
+cria um loop(do-while) para apresentar o menu de opções de doação até que o usuário dejese sair do menu.
+-----------
+5  -Estratégia de Programação com IA
+Para desenvolver uma estratégia de programação para o seu sistema de doações, vamos focar em alguns passos essenciais: análise de requisitos, design do sistema, implementação e testes. Abaixo estão os passos detalhados para criar o sistema de doações com o código que você já começou a desenvolver.
+
+Passo 1: Análise de Requisitos
+Funcionalidades Básicas:
+Cadastro de Doadores e Beneficiários
+Registro de Doações:
+Alimentos (tipo, quantidade, qualidade)
+Roupas (tamanho, quantidade, qualidade)
+Dinheiro (valor, método de pagamento, chave Pix)
+Autenticação e Autorização
+Notificações de Agradecimento
+Loop de Opções de Doação
+Passo 2: Design do Sistema
+Classes Principais:
+Usuario: Classe base para Doador e Beneficiario.
+Doador e Beneficiario: Herança da classe Usuario.
+Doacao: Para registrar detalhes da doação.
+SistemaRecomendacao: Para futuras implementações de IA (recomendações).
+Main: Ponto de entrada para o sistema.
+Passo 3: Implementação
+Vamos implementar a lógica principal no método main e os métodos das classes auxiliares.
+Passo 3: Implementação
+Vamos implementar a lógica principal no método main e os métodos das classes auxiliares.
+------------
+6  -Codificação do Programa
