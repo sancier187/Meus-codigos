@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+/*
+implemente uma função recursiva para calcular o fatorial de um numero nao negativo.
+
+Entrada: um inteiro nao negativo, por exemplo,5.
+
+Saida: o fatorial de numero, por exemplo,120.
+*/
+    Scanner scanner = new Scanner(System.in);
+      System.out.print("Digite um numero (nao  pode ser negativo): ");
+      int numero = scanner.nextInt();
+      System.out.println("O fatorial de " + numero + " e " + fatorial(numero));
+    }
+    public static int fatorial(int n) {
+      if (n == 0) {
+        return 1;
+      } else {
+        return n * fatorial(n - 1);
+      }
+  }
+}
