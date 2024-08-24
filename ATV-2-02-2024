@@ -1,0 +1,29 @@
+import java.util.*;
+public class Main {
+  public static void main(String[] args) {
+    /* escreva uma função que determine se uma string é uma palíndromo(uma palavra que é a mesma quando lida de tras para frente)
+    
+    Entrada: uma string, por exemplo, "radar"
+
+    Daída: um booleno tru ou false, indicando se a string é um palíndromo.
+    
+    */
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Digite uma palavra: ");
+    String str = scanner.nextLine();
+    System.out.println(isPalindrome(str));
+  }
+  public static boolean isPalindrome(String str) {
+    str = str.toLowerCase();
+    int left = 0;
+    int right = str.length() - 1;
+    while (left < right) {
+      if (str.charAt(left) != str.charAt(right)) {
+        return false;
+      }
+      left++;
+      right--;
+    }
+    return true;
+  }
+}
